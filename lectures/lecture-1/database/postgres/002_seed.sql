@@ -6,7 +6,7 @@ on conflict do nothing;
 insert into routes (id, operator_id, city_id, mode, short_name) values
     ('LINE-M2', 'OP-METRO', 'CPH', 'metro', 'M2'),
     ('LINE-5C', 'OP-BUS', 'CPH', 'bus', '5C'),
-    ('LINE-EMPTY', 'OP-BUS', 'X1', 'Test route without trips', 'EMPTY')
+    ('LINE-EMPTY', 'OP-BUS', 'CPH', 'bus', 'X1')
 on conflict do nothing;
 
 insert into stops (id, city_id, name) values
@@ -60,13 +60,4 @@ insert into trips (
         timestamptz '2026-09-28 09:30:00+00',
         'Scheduled'
     )
-on conflict do nothing;
-
-insert into route_stops (route_id, stop_id, stop_sequence) values
-    ('LINE-M2', 'STOP-NORREPORT', 1),
-    ('LINE-M2', 'STOP-KONGENS-NYTORV', 2),
-    ('LINE-M2', 'STOP-AIRPORT', 3),
-
-    ('LINE-5C', 'STOP-CENTRAL', 1),
-    ('LINE-5C', 'STOP-NORREPORT', 2)
 on conflict do nothing;
